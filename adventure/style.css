@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #E63A46;
+  --clr-dark: #1D3556;
+  --clr-light: #fff;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --fw-black: 900;
+  --grid: 1fr;
+}
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.125rem;
+  /* color: #1D3556; */
+  color: var(--clr-dark);
+  line-height: 1.6;
+  height: 100vh;
+}
+
+header {
+  background-color: var(--clr-light);
+  text-align: center;
+}
+
+.logo {
+  margin-top: .680rem;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+}
+
+.nav__list--item {
+  margin-left: 3em;
+}
+
+.nav__list--item:hover {
+  color: var(--clr-primary);
+  cursor: pointer;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media(min-width :700px) {
+  .nav {
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  .nav__list-item {
+    max-width: 30rem;
+    margin: 0 1.5em;
+  }
+
+  .icone {
+    width: max-content;
+    margin: .5em auto -2em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .info span {
+    display: block;
+    margin-left: 1rem;
+    margin-right: auto;
+  }
+}
+
+@media (min-width:1000px) {
+  header {
+    display: grid;
+    grid-template-columns: minmax(1em, 10%) minmax(10rem, 22ch) minmax(10rem, 23ch) minmax(1em, 3fr) max-content;
+    align-items: center;
+  }
+
+  .icone {
+    grid-column: -2 / -1;
+    justify-self: end;
+  }
+
+  .logo, .nav, .icone {
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .logo {
+    grid-column: 2;
+  }
+
+  .nav {
+    grid-column: 2 / 5;
+    justify-self: end;
+    margin-right: 3em;
+  }
+
+  .icone {
+    grid-column: -2 / -1;
+    justify-self: end;
+  }
+}
+
+.icone {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  background: var(--clr-dark);
+  color: var(--clr-light);
+  /* padding: 1rem; */
+  /* margin-top: 1rem; */
+}
+
+.icone-svg {
+  grid-row: span 2;
+  background: var(--clr-primary);
+  padding: .5rem;
+  display: flex;
+}
+
+.svg {
+  width: 50px;
+}
+
+.info {
+  margin: 0;
+  text-align: left;
+  margin-left: .75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  font-size: .75rem;
+  display: flex;
+  align-items: center;
+}
+
+.info span {
+  color: var(--clr-light);
+  margin-right: .75rem;
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.info:first-of-type {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  position: relative;
+  justify-content: space-between;
+}
+
+.info:first-of-type::after {
+  position: absolute;
+  content: '';
+  background: var(--clr-light);
+  opacity: .25;
+  height: 2px;
+  width: calc(100% - .75rem);
+  bottom: -.25rem;
+}
+
+.info:last-of-type {
+  margin-bottom: .5rem;
+  justify-content: space-between;
+}
+
+.main {
+  padding: 3rem 1em 5rem;
+  /* display: grid; */
+}
+
+@media (min-width: 500px) {
+  .main {
+    display: grid;
+    grid-template-columns: minmax(1em, 10%) minmax(10rem, 22ch) minmax(10rem, 23ch) minmax(1em, 3fr) max-content;
+    justify-items: start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .main>* {
+    grid-column: 2 / 4;
+  }
+
+  .main--outdoor {
+    background-position: left bottom;
+    height: 100%;
+  }
+}
+
+@media (min-width: 100px) {
+  .main--outdoor {
+    background-position: center right;
+  }
+}
+
+.main--outdoor {
+  background-image: url('images/man-sitting.jpeg');
+  background-size: cover;
+}
+
+.main__title {
+  line-height: 1;
+  font-weight: var(--fw-black);
+  font-size: 3rem;
+}
+
+h1 {
+  line-height: 1;
+}
+
+.btn {
+  padding: .5em 1.5em;
+  cursor: pointer;
+  /* padding: .5rem 1.25rem; */
+  display: inline-block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  margin-bottom: .75rem;
+}
+
+.btn+.btn {
+  margin-left: 1em;
+}
+
+.btn--primary {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  outline: 3px solid var(--clr-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  outline: 3px solid var(--clr-dark);
+}
+
+.btn--outline {
+  outline: 3px solid var(--clr-primary);
+  outline-offset: : -3px;
+  background-color: var(--clr-light);
+  color: var(--clr-primary);
+}
+
+.btn--outline:hover {
+  background-color: var(--clr-dark);
+  outline: 3px solid var(--clr-dark);
+  color: var(--clr-light);
+}
